@@ -1,0 +1,15 @@
+C:\Users\user\dotnet projects\LibraryManagment\obj\Debug\net7.0\LibraryManagment.csproj.AssemblyReference.cache
+C:\Users\user\dotnet projects\LibraryManagment\obj\Debug\net7.0\LibraryManagment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\dotnet projects\LibraryManagment\obj\Debug\net7.0\LibraryManagment.AssemblyInfoInputs.cache
+C:\Users\user\dotnet projects\LibraryManagment\obj\Debug\net7.0\LibraryManagment.AssemblyInfo.cs
+C:\Users\user\dotnet projects\LibraryManagment\obj\Debug\net7.0\LibraryManagment.csproj.CoreCompileInputs.cache
+C:\Users\user\dotnet projects\LibraryManagment\bin\Debug\net7.0\LibraryManagment.exe
+C:\Users\user\dotnet projects\LibraryManagment\bin\Debug\net7.0\LibraryManagment.deps.json
+C:\Users\user\dotnet projects\LibraryManagment\bin\Debug\net7.0\LibraryManagment.runtimeconfig.json
+C:\Users\user\dotnet projects\LibraryManagment\bin\Debug\net7.0\LibraryManagment.dll
+C:\Users\user\dotnet projects\LibraryManagment\bin\Debug\net7.0\LibraryManagment.pdb
+C:\Users\user\dotnet projects\LibraryManagment\obj\Debug\net7.0\LibraryManagment.dll
+C:\Users\user\dotnet projects\LibraryManagment\obj\Debug\net7.0\refint\LibraryManagment.dll
+C:\Users\user\dotnet projects\LibraryManagment\obj\Debug\net7.0\LibraryManagment.pdb
+C:\Users\user\dotnet projects\LibraryManagment\obj\Debug\net7.0\LibraryManagment.genruntimeconfig.cache
+C:\Users\user\dotnet projects\LibraryManagment\obj\Debug\net7.0\ref\LibraryManagment.dll
