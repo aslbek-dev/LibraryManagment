@@ -8,7 +8,7 @@ namespace LibraryManagment.Data
 {
     public class LibrariantRepository : ILibrariantRepository
     {
-        private Dictionary<int, User>? librariants;
+        private Dictionary<int, User> librariants;
         public LibrariantRepository()
         {
             this.librariants = new Dictionary<int, User>();
