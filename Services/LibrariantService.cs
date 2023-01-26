@@ -9,7 +9,7 @@ namespace LibraryManagment.Services
 {
     public class LibrariantService : ILibrariantService
     {   
-        private readonly ILibrariantRepository librariantRepository;
+        private readonly LibrariantRepository librariantRepository;
         public LibrariantService(ILibrariantRepository librariantRepository)
         {
             this.librariantRepository = new LibrariantRepository();
