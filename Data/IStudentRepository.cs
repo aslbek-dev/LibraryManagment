@@ -12,6 +12,6 @@ namespace LibraryManagment.Data
        User SelectStudentById(int studentId);
        User InsertStudent(User student);
        User UpdateStudent(int studentId, User student);
-       User DeleteStudent(int studentId);
+       bool DeleteStudent(int studentId);
     }
 }

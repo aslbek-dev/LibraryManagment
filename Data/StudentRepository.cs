@@ -8,29 +8,41 @@ namespace LibraryManagment.Data
 {
     public class StudentRepository : IStudentRepository
     {
-        public User DeleteStudent(int studentId)
+        private Dictionary<int, User> students;
+        public StudentRepository()
         {
-            throw new NotImplementedException();
+            this.students = new Dictionary<int, User>();
         }
-
-        public User InsertStudent(User student)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<User> SelectAllStudents()
-        {
-            throw new NotImplementedException();
-        }
-
+        public List<User> SelectAllStudents()=>
+        students.Values.ToList();
         public User SelectStudentById(int studentId)
         {
-            throw new NotImplementedException();
+            if(students.ContainsKey(studentId))
+                throw new KeyNotFoundException("student not found");
+            return students[studentId];
+        }                                  
+        public User InsertStudent(User student)
+        {
+            if(!students.ContainsKey(student.UserId))
+                throw new ArgumentException("Students with this key already exits");
+            students.Add(student.UserId, student);
+            return student;
         }
-
         public User UpdateStudent(int studentId, User student)
         {
-            throw new NotImplementedException();
+            if(!students.ContainsKey(studentId))
+                throw new KeyNotFoundException("Student not found");
+            var existingStudent = students[studentId];
+            if(!string.IsNullOrEmpty(student.Name))
+                existingStudent.Name = student.Name;
+            return existingStudent;     
         }
+        public bool DeleteStudent(int studentId)
+        {
+            if(!students.ContainsKey(studentId))
+                throw new KeyNotFoundException("student not found");
+            return students.Remove(studentId);
+        }
+        
     }
 }
