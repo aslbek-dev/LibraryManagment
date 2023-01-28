@@ -7,6 +7,17 @@ namespace LibraryManagment.Services
 {
     public class StudentMenu : IStudentMenu
     {
+        private readonly IStudentService studentService;
+        public StudentMenu()
+        {
+            this.studentService = new StudentService();
+        }
+        private void Select()
+        {
+            var students = this.studentService.RetrieveStudents("");
+            foreach(var student in students);
+                Console.WriteLine();
+        }
         public void LoadStudentMenu()
         {
             var homeService = new HomeService();
@@ -26,8 +37,6 @@ namespace LibraryManagment.Services
                 case 6:
                     homeService.LoadExistingMenus(); break;
             }
-           
-
         }
     }
 }

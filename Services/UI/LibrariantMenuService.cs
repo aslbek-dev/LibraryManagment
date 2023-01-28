@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagment.Services
 {
-    public class LibrariantMenu : ILibrariantMenu
+    public class LibrariantMenuService : ILibrariantMenuService
     {
         public void LoadLibrariantMenu()
         {

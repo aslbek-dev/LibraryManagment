@@ -8,11 +8,11 @@ namespace LibraryManagment.Services
     public class HomeService : IHomeService
     {
         private readonly StudentMenu studentMenu;
-        private readonly LibrariantMenu librariantMenu;
+        private readonly LibrariantMenuService librariantMenu;
         public HomeService()
     {
         this.studentMenu = new StudentMenu();
-        this.librariantMenu = new LibrariantMenu();
+        this.librariantMenu = new LibrariantMenuService();
     }
         public void LoadExistingMenus()
         {

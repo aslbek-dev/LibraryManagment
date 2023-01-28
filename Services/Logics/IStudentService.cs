@@ -8,7 +8,7 @@ namespace LibraryManagment.Services
 {
     public interface IStudentService
     {
-        IEnumerable<User> RetrieveStudents(string name);
+        IList<User> RetrieveStudents(string name = null);
         User RetrieveStudent(int studentId);
         User AddStudent(User student);
         User ModifyStudent(int studentId, User student);

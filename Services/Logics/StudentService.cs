@@ -15,7 +15,7 @@ namespace LibraryManagment.Services
             this.studentRepository = 
                 new StudentRepository();
         }
-        public IEnumerable<User> RetrieveStudents(string name)
+        public IList<User> RetrieveStudents(string name = null)
         {
             var students = 
                 this.studentRepository.SelectAllStudents();
