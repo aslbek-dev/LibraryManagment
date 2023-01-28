@@ -50,6 +50,7 @@ namespace LibraryManagment.Services
            {
                 insertedStudent = 
                     this.studentRepository.InsertStudent(student);
+                
            }
            catch(ArgumentException exception)
            {
@@ -65,6 +66,7 @@ namespace LibraryManagment.Services
             {
                 modifiedStudent = 
                     this.studentRepository.UpdateStudent(studentId, student);
+                Console.WriteLine("Muvaffaqiyatli!");
             }
             catch(KeyNotFoundException exception)
             {

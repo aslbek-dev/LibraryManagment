@@ -17,7 +17,7 @@ namespace LibraryManagment.Data
         students.Values.ToList();
         public User SelectStudentById(int studentId)
         {
-            if(students.ContainsKey(studentId))
+            if(!students.ContainsKey(studentId))
                 throw new KeyNotFoundException("student not found");
             return students[studentId];
         }                                  
