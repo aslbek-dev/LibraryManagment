@@ -21,7 +21,7 @@ namespace LibraryManagment.Data
              
         }
 
-        public User? InsertLibrariant(User librariant)
+        public User InsertLibrariant(User librariant)
         {
             if(librariants.ContainsKey(librariant.UserId))
                 throw new ArgumentException("Librariant with this key already exits");

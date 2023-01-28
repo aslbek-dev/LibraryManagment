@@ -9,9 +9,9 @@ namespace LibraryManagment.Services
     public interface ILibrariantService
     {
         IEnumerable<User> RetrieveLibrariants(string name);
-        User? RetrieveLibrariant(int librariantId);
-        User? AddRetrieveLibrariant(User librariant);
-        User? ModifyLibrariant(int librariantId, User librariant);
+        User RetrieveLibrariant(int librariantId);
+        User AddRetrieveLibrariant(User librariant);
+        User ModifyLibrariant(int librariantId, User librariant);
         bool RemoveLibrariant(int librariantId);
     }
 }

@@ -30,9 +30,9 @@ namespace LibraryManagment.Services
             return librariants;  
 
         }
-        public User? RetrieveLibrariant(int librariantId)
+        public User RetrieveLibrariant(int librariantId)
         {
-            User? librariant = null;
+            User librariant = null;
             try
             {
                 librariant = 
@@ -46,9 +46,9 @@ namespace LibraryManagment.Services
             }
             return librariant;
         }
-        public User? AddRetrieveLibrariant(User librariant)
+        public User AddRetrieveLibrariant(User librariant)
         {
-            User? insertedLibrariant = null;
+            User insertedLibrariant = null;
             try
             {
                 insertedLibrariant = 
@@ -61,9 +61,9 @@ namespace LibraryManagment.Services
             return insertedLibrariant;
         }
 
-        public User? ModifyLibrariant(int librariantId, User librariant)
+        public User ModifyLibrariant(int librariantId, User librariant)
         {
-            User? modifiedLibrariant = null;
+            User modifiedLibrariant = null;
             try
             {
                 modifiedLibrariant = 
