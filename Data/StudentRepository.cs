@@ -23,7 +23,7 @@ namespace LibraryManagment.Data
         }                                  
         public User InsertStudent(User student)
         {
-            if(!students.ContainsKey(student.UserId))
+            if(students.ContainsKey(student.UserId))
                 throw new ArgumentException("Students with this key already exits");
             students.Add(student.UserId, student);
             return student;

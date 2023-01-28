@@ -2,21 +2,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LibraryManagment.Models;
 
 namespace LibraryManagment.Services
 {
-    public class StudentMenu : IStudentMenu
+    public class StudentMenuService : IStudentMenuService
     {
         private readonly IStudentService studentService;
-        public StudentMenu()
+        public StudentMenuService()
         {
             this.studentService = new StudentService();
         }
-        private void Select()
+        private void DisplayStudent()
         {
-            var students = this.studentService.RetrieveStudents("");
-            foreach(var student in students);
-                Console.WriteLine();
+            var temproryStudent = new User()
+            {
+                Name = "Amir",
+                UserId = 1,
+                UserType = UserType.Student,
+                Birthday = DateTime.Now,
+                Gender = Gender.Male
+            };
+            this.studentService.AddStudent(temproryStudent);
+            
+            var students = 
+                this.studentService.RetrieveStudents();
+            for(int i = 0; i < students.Count; i++)
+                Console.WriteLine($"{i + 1}. {students[i]}");
         }
         public void LoadStudentMenu()
         {
@@ -34,6 +46,8 @@ namespace LibraryManagment.Services
             Console.Clear();
             switch(option)
             {
+                case 1:
+                    DisplayStudent(); break;
                 case 6:
                     homeService.LoadExistingMenus(); break;
             }
