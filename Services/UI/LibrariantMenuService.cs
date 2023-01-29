@@ -49,7 +49,7 @@ namespace LibraryManagment.Services
             }
             Back();
         }
-        private void SearchStudentById()
+        private void SearchlibrariantById()
         {
             Console.Write("ID...");
             int.TryParse(Console.ReadLine(), out int librariantId);
@@ -80,24 +80,47 @@ namespace LibraryManagment.Services
         {
             Console.Write("Id: ");
             int librariantId = int.Parse(Console.ReadLine());
-            var librariant = this.librariantService.RetrieveLibrariant(librariantId);
-            Console.WriteLine(librariant);
+            User oldLibrariant = this.librariantService.RetrieveLibrariant(librariantId);
+            Console.WriteLine(oldLibrariant);
+
+            User librariant = new User();
             Console.Write("Ism: ");
             librariant.Name = Console.ReadLine();
 
             Console.Write("Tugilgan kun: ");
-            librariant.Birthday = DateTime.Parse(Console.ReadLine());
-
+            string birthday = Console.ReadLine();
+            if(string.IsNullOrEmpty(birthday))
+                librariant.Birthday = librariant.Birthday;
+            else
+                librariant.Birthday = DateTime.Parse(birthday);
+            
             Console.Write("Gender(Male or Female): ");
-            librariant.Gender = Enum.Parse<Gender>(Console.ReadLine());
+            string gender = Console.ReadLine();
+            if(string.IsNullOrWhiteSpace(gender))
+                librariant.Gender = oldLibrariant.Gender;
+            else
+                librariant.Gender = Enum.Parse<Gender>(gender);
 
-            librariant.UserType = UserType.Student;
-            librariant.UserId = librariant.UserId;
-            Console.WriteLine(librariantId);
+            Console.Write("ID: ");
+            string userId = Console.ReadLine();
+            if(string.IsNullOrWhiteSpace(userId))
+                librariant.UserId = oldLibrariant.UserId;
+            else
+                librariant.UserId = int.Parse(userId);
+    
+            Console.WriteLine(librariant);
             this.librariantService.ModifyLibrariant(librariantId, librariant);
+            Console.WriteLine(oldLibrariant);
             Back();
         }
-        private void DeleteStudent()
+        private void Deletelibrariant()
+        {
+            Console.Write("ID...");
+            int.TryParse(Console.ReadLine(), out int librariantId);
+            this.librariantService.RemoveLibrariant(librariantId);
+            Back();
+        }
+        private void DeleteLibrariant()
         {
             Console.Write("ID...");
             int.TryParse(Console.ReadLine(), out int librariantId);
@@ -124,7 +147,7 @@ namespace LibraryManagment.Services
                 case 1:
                     DisplayLibrariant(); break;
                 case 2:
-                    SearchStudentById(); break;
+                    SearchlibrariantById(); break;
                 case 3:
                     PushLibrariant(); break;
                 case 4:
