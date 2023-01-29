@@ -123,15 +123,8 @@ namespace LibraryManagment.Services
     
             Console.WriteLine(librariant);
             this.librariantService.ModifyLibrariant(librariantId, librariant);
-            
+
             Console.WriteLine(oldLibrariant);
-            Back();
-        }
-        private void Deletelibrariant()
-        {
-            Console.Write("ID...");
-            int.TryParse(Console.ReadLine(), out int librariantId);
-            this.librariantService.RemoveLibrariant(librariantId);
             Back();
         }
         private void DeleteLibrariant()
@@ -167,7 +160,7 @@ namespace LibraryManagment.Services
                 case 4:
                     UpdateLibrariant(); break;
                 case 5:
-
+                    DeleteLibrariant(); break;
                 case 6:
                     homeService.LoadExistingMenus(); break;
             }
