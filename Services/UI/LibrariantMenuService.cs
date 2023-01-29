@@ -146,7 +146,9 @@ namespace LibraryManagment.Services
                           "6.Orqaga\n";
             Console.WriteLine("<====Kutubxonachilar Menyu====>");
             Console.WriteLine(menu);
+            
             Console.Write("menyuni tanlang: ");
+
             int.TryParse(Console.ReadLine(), out int option);
             Console.Clear();
             switch(option)
