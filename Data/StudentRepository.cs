@@ -11,7 +11,26 @@ namespace LibraryManagment.Data
         private Dictionary<int, User> students;
         public StudentRepository()
         {
-            this.students = new Dictionary<int, User>();
+            this.students = new Dictionary<int, User>()
+            {
+                {
+                    1, new User{UserId = 1,
+                             Name = "Aslbek",
+                             Birthday = DateTime.Parse("2004-04-07"),
+                             Gender = Gender.Male,
+                             UserType = UserType.Student
+                            }
+                },
+                {
+                    2, new User{UserId = 1,
+                             Name = "Sevara",
+                             Birthday = DateTime.Parse("2000-08-07"),
+                             Gender = Gender.Female,
+                             UserType = UserType.Student
+                           }
+                }
+            };
+    
         }
         public List<User> SelectAllStudents()=>
         students.Values.ToList();
@@ -24,7 +43,7 @@ namespace LibraryManagment.Data
         public User InsertStudent(User student)
         {
             if(students.ContainsKey(student.UserId))
-                throw new ArgumentException("Students with this key already exits");
+                throw new ArgumentException("Student with this key already exits");
             students.Add(student.UserId, student);
             return student;
         }
@@ -32,9 +51,18 @@ namespace LibraryManagment.Data
         {
             if(!students.ContainsKey(studentId))
                 throw new KeyNotFoundException("Student not found");
+
             var existingStudent = students[studentId];
             if(!string.IsNullOrEmpty(student.Name))
                 existingStudent.Name = student.Name;
+            
+            existingStudent.Birthday = student.Birthday;
+    
+            existingStudent.UserId = student.UserId;
+            
+            existingStudent.Gender = student.Gender;
+        
+            
             return existingStudent;     
         }
         public bool DeleteStudent(int studentId)

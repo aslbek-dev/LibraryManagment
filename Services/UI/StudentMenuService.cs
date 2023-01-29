@@ -22,15 +22,6 @@ namespace LibraryManagment.Services
         public StudentMenuService()
         {
             this.studentService = new StudentService();
-            var temproryStudent = new User()
-            {
-                Name = "Amir",
-                UserId = 100,
-                UserType = UserType.Student,
-                Birthday = DateTime.Now,
-                Gender = Gender.Male
-            };
-            this.studentService.AddStudent(temproryStudent);
         }
         private void DisplayStudent()
         {   
@@ -71,21 +62,37 @@ namespace LibraryManagment.Services
         {
             Console.Write("Id: ");
             int studentId = int.Parse(Console.ReadLine());
-            var student = this.studentService.RetrieveStudent(studentId);
-            Console.WriteLine(student);
+            User oldStudent = this.studentService.RetrieveStudent(studentId);
+            Console.WriteLine(oldStudent);
+
+            User student = new User();
             Console.Write("Ism: ");
             student.Name = Console.ReadLine();
 
             Console.Write("Tugilgan kun: ");
-            student.Birthday = DateTime.Parse(Console.ReadLine());
-
+            string birthday = Console.ReadLine();
+            if(string.IsNullOrEmpty(birthday))
+                student.Birthday = oldStudent.Birthday;
+            else
+                student.Birthday = DateTime.Parse(birthday);
+            
             Console.Write("Gender(Male or Female): ");
-            student.Gender = Enum.Parse<Gender>(Console.ReadLine());
+            string gender = Console.ReadLine();
+            if(string.IsNullOrWhiteSpace(gender))
+                student.Gender = oldStudent.Gender;
+            else
+                student.Gender = Enum.Parse<Gender>(gender);
 
-            student.UserType = UserType.Student;
-            student.UserId = student.UserId;
+            Console.Write("ID: ");
+            string userId = Console.ReadLine();
+            if(string.IsNullOrWhiteSpace(userId))
+                student.UserId = oldStudent.UserId;
+            else
+                student.UserId = int.Parse(userId);
+    
             Console.WriteLine(student);
             this.studentService.ModifyStudent(studentId, student);
+            Console.WriteLine(oldStudent);
             Back();
         }
         private void DeleteStudent()

@@ -8,6 +8,5 @@ namespace LibraryManagment.Models
         public DateTime RentAt { get; set; }
         public DateTime ReturnAt { get; set; }
         public bool IsReturned { get; set; }
-        
     }
 }

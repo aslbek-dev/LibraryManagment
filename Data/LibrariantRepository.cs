@@ -11,7 +11,25 @@ namespace LibraryManagment.Data
         private Dictionary<int, User> librariants;
         public LibrariantRepository()
         {
-            this.librariants = new Dictionary<int, User>();
+            this.librariants = new Dictionary<int, User>()
+             {
+                {
+                    1, new User{UserId = 1,
+                             Name = "Aslbek",
+                             Birthday = DateTime.Parse("2004-04-07"),
+                             Gender = Gender.Male,
+                             UserType = UserType.Librariant
+                            }
+                },
+                {
+                    2, new User{UserId = 2,
+                             Name = "Sevara",
+                             Birthday = DateTime.Parse("2000-08-07"),
+                             Gender = Gender.Female,
+                             UserType = UserType.Librariant
+                           }
+                }
+            };;
         }
         public bool DeleteLibrariant(int librariantId)
         {
