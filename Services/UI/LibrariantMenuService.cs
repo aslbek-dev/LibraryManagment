@@ -64,15 +64,23 @@ namespace LibraryManagment.Services
                                    " 3.Gender(Male or Female)"+
                                    " 4.UserId";
             Console.WriteLine(inputPattern);
+
             List<String> infoLibrariant  = Console.ReadLine().Split(" ").ToList();
             var librariant = new User();
+
             librariant.Name = infoLibrariant[0];
+
             librariant.Birthday = DateTime.Parse(infoLibrariant[1]);
+
             librariant.Gender = Enum.Parse<Gender>(infoLibrariant[2]);
             int.TryParse(infoLibrariant[3],out int k);
+
             librariant.UserId = k;
+
             librariant.UserType = UserType.Librariant;
+
             this.librariantService.AddLibrariant(librariant);
+
             Console.WriteLine(librariant);
             Back();
         }
@@ -80,6 +88,7 @@ namespace LibraryManagment.Services
         {
             Console.Write("Id: ");
             int librariantId = int.Parse(Console.ReadLine());
+
             User oldLibrariant = this.librariantService.RetrieveLibrariant(librariantId);
             Console.WriteLine(oldLibrariant);
 
@@ -89,13 +98,16 @@ namespace LibraryManagment.Services
 
             Console.Write("Tugilgan kun: ");
             string birthday = Console.ReadLine();
+
             if(string.IsNullOrEmpty(birthday))
+
                 librariant.Birthday = librariant.Birthday;
             else
                 librariant.Birthday = DateTime.Parse(birthday);
             
             Console.Write("Gender(Male or Female): ");
             string gender = Console.ReadLine();
+
             if(string.IsNullOrWhiteSpace(gender))
                 librariant.Gender = oldLibrariant.Gender;
             else
@@ -103,6 +115,7 @@ namespace LibraryManagment.Services
 
             Console.Write("ID: ");
             string userId = Console.ReadLine();
+
             if(string.IsNullOrWhiteSpace(userId))
                 librariant.UserId = oldLibrariant.UserId;
             else
@@ -110,6 +123,7 @@ namespace LibraryManagment.Services
     
             Console.WriteLine(librariant);
             this.librariantService.ModifyLibrariant(librariantId, librariant);
+            
             Console.WriteLine(oldLibrariant);
             Back();
         }
