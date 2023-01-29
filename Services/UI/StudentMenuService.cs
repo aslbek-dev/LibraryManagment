@@ -4,6 +4,20 @@ namespace LibraryManagment.Services
 {
     public class StudentMenuService : IStudentMenuService
     {
+        private void Back()
+        {
+            Console.WriteLine("\n\norqaga qaytish - 0...");
+            Console.WriteLine("\nChiqish -1...");
+            int.TryParse(Console.ReadLine(), out int option);
+            switch(option)
+            {
+                case 0:
+                    LoadStudentMenu(); break;
+                case 1:
+                    Environment.Exit(0); break;
+            }
+
+        }
         private readonly IStudentService studentService;
         public StudentMenuService()
         {
@@ -24,6 +38,7 @@ namespace LibraryManagment.Services
                 this.studentService.RetrieveStudents();
             for(int i = 0; i < students.Count; i++)
                 Console.WriteLine($"{i + 1}. {students[i]}");
+            Back();
         }
         private void SearchStudent()
         {
@@ -31,6 +46,7 @@ namespace LibraryManagment.Services
             int.TryParse(Console.ReadLine(), out int studentId);
             var findedStudent = this.studentService.RetrieveStudent(studentId);
             Console.WriteLine(findedStudent);
+            Back();
         }
         private void PushStudent()
         {
@@ -48,6 +64,8 @@ namespace LibraryManagment.Services
             student.UserId = 1;  
             this.studentService.AddStudent(student);
             Console.WriteLine(student);
+            Back();
+
         }
         private void ChangeStudent()
         {
@@ -68,15 +86,18 @@ namespace LibraryManagment.Services
             student.UserId = student.UserId;
             Console.WriteLine(student);
             this.studentService.ModifyStudent(studentId, student);
+            Back();
         }
         private void DeleteStudent()
         {
             Console.Write("ID...");
             int.TryParse(Console.ReadLine(), out int studentId);
             this.studentService.RemoveStudent(studentId);
+            Back();
         }
         public void LoadStudentMenu()
         {
+            Console.Clear();
             var homeService = new HomeService();
             string menu = "1.Ro'yxat\n"+
                           "2.Qidirish\n"+

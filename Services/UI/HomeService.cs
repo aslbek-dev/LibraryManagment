@@ -7,13 +7,14 @@ namespace LibraryManagment.Services
 {
     public class HomeService : IHomeService
     {
-        private readonly StudentMenuService studentMenu;
-        private readonly LibrariantMenuService librariantMenu;
+        private readonly StudentMenuService studentMenuService;
+        private readonly LibrariantMenuService librariantMenuService;
         public HomeService()
-    {
-        this.studentMenu = new StudentMenuService();
-        this.librariantMenu = new LibrariantMenuService();
-    }
+        {
+            this.studentMenuService = new StudentMenuService();
+            this.librariantMenuService = new LibrariantMenuService();
+
+        }
         public void LoadExistingMenus()
         {
             string menus = "1.Talabalar\n2.Kutubxonachilar\n3.Ijaralar\n4.Chiqish";
@@ -25,9 +26,10 @@ namespace LibraryManagment.Services
             switch(option)
             {
                 case 1:
-                    this.studentMenu.LoadStudentMenu(); break;
+                    this.studentMenuService.LoadStudentMenu();
+                     break;
                 case 2:
-                    this.librariantMenu.LoadLibrariantMenu(); break;
+                    this.librariantMenuService.LoadLibrariantMenu(); break;
                 case 3:;break;
                 case 4:
                     Environment.Exit(0); break;

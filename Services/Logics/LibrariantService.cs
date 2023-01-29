@@ -14,7 +14,7 @@ namespace LibraryManagment.Services
         {
             this.librariantRepository = new LibrariantRepository();
         }
-        public IEnumerable<User> RetrieveLibrariants(string name)
+        public IList<User> RetrieveLibrariants(string name)
         {
             var librariants =
                 this.librariantRepository.SelectAllLibrariants();
@@ -46,13 +46,13 @@ namespace LibraryManagment.Services
             }
             return librariant;
         }
-        public User AddRetrieveLibrariant(User librariant)
+        public User AddLibrariant(User librariant)
         {
             User insertedLibrariant = null;
             try
             {
                 insertedLibrariant = 
-                    this.librariantRepository.InsertLibrariant(insertedLibrariant);
+                    this.librariantRepository.InsertLibrariant(librariant);
             }
             catch(ArgumentException exception)
             {
@@ -90,6 +90,5 @@ namespace LibraryManagment.Services
             }
             return isRemoved;
         }
-
     }
 }

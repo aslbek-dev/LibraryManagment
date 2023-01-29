@@ -7,7 +7,7 @@ namespace LibraryManagment.Models
     public int UserId { get; set; }
     public string Name { get; set; } 
     public Gender Gender { get; set; }
-    public DateTime Birthday { get; set; }
+    public  DateTime Birthday { get; set; }
     public UserType UserType { get; set; }
     public override string ToString()=>
       $"{UserId} | {Name} | {Enum.GetName(Gender)} | {Birthday} | {Enum.GetName(UserType)}";
