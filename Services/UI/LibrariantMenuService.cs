@@ -28,15 +28,6 @@ namespace LibraryManagment.Services
         public LibrariantMenuService()
         {
             this.librariantService = new LibrariantService();
-            User temproryLibrariant = new User()
-            {
-                Name = "Sherbek",
-                UserId = 100,
-                UserType = UserType.Librariant,
-                Birthday = DateTime.Now,
-                Gender = Gender.Male
-            };
-            this.librariantService.AddLibrariant(temproryLibrariant);
         }
         private void DisplayLibrariant()
         {
@@ -60,23 +51,24 @@ namespace LibraryManagment.Services
         }
         private void PushLibrariant()
         {
-            string inputPattern = "1.Name 2.Birthday"+
-                                   " 3.Gender(Male or Female)"+
-                                   " 4.UserId";
+            string inputPattern = " 1.UserId"+
+                                  " 2.Name"+
+                                  " 3.Birthday"+
+                                  " 4.Gender(Male or Female)";
+                                  
             Console.WriteLine(inputPattern);
 
             List<String> infoLibrariant  = Console.ReadLine().Split(" ").ToList();
             var librariant = new User();
 
-            librariant.Name = infoLibrariant[0];
+            librariant.UserId = int.Parse(infoLibrariant[0]);
 
-            librariant.Birthday = DateTime.Parse(infoLibrariant[1]);
+            librariant.Name = infoLibrariant[1];
 
-            librariant.Gender = Enum.Parse<Gender>(infoLibrariant[2]);
-            int.TryParse(infoLibrariant[3],out int k);
+            librariant.Birthday = DateTime.Parse(infoLibrariant[2]);
 
-            librariant.UserId = k;
-
+            librariant.Gender = Enum.Parse<Gender>(infoLibrariant[3]);
+            
             librariant.UserType = UserType.Librariant;
 
             this.librariantService.AddLibrariant(librariant);
@@ -146,7 +138,7 @@ namespace LibraryManagment.Services
                           "6.Orqaga\n";
             Console.WriteLine("<====Kutubxonachilar Menyu====>");
             Console.WriteLine(menu);
-            
+
             Console.Write("menyuni tanlang: ");
 
             int.TryParse(Console.ReadLine(), out int option);

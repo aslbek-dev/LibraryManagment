@@ -42,6 +42,10 @@ namespace LibraryManagment.Services
         private void PushStudent()
         {
             User student = new User();
+            Console.Write("Id: ");
+            int.TryParse(Console.ReadLine(), out int studentId);
+            student.UserId = studentId;
+            
             Console.Write("Ism: ");
             student.Name = Console.ReadLine();
 
@@ -51,10 +55,9 @@ namespace LibraryManagment.Services
             Console.Write("Gender(Male or Female): ");
             student.Gender = Enum.Parse<Gender>(Console.ReadLine());
 
-            student.UserType = UserType.Student;
-            student.UserId = 1;  
+            student.UserType = UserType.Student;  
             this.studentService.AddStudent(student);
-            Console.WriteLine(student);
+
             Back();
 
         }
