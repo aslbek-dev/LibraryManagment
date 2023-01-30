@@ -63,8 +63,15 @@ namespace LibraryManagment.Data
             if(!librariants.ContainsKey(librariantId))   
                 throw new KeyNotFoundException("Librariant not found");
             var existingLibrariant = librariants[librariantId];
-            if(string.IsNullOrEmpty(librariant.Name))
+            if(!string.IsNullOrEmpty(librariant.Name))
                 existingLibrariant.Name = librariant.Name;
+
+            existingLibrariant.Birthday = librariant.Birthday;
+    
+            existingLibrariant.UserId = librariant.UserId;
+            
+            existingLibrariant.Gender = librariant.Gender;
+
             return existingLibrariant;
         }
     }

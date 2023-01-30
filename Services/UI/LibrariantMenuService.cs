@@ -11,6 +11,10 @@ namespace LibraryManagment.Services
     public class LibrariantMenuService : ILibrariantMenuService
     {
         private ILibrariantService librariantService;
+        public LibrariantMenuService()
+        {
+            this.librariantService = new LibrariantService();
+        }
          private void Back()
         {
             Console.WriteLine("\n\norqaga qaytish - 0...");
@@ -24,10 +28,6 @@ namespace LibraryManagment.Services
                     Environment.Exit(0); break;
             }
 
-        }
-        public LibrariantMenuService()
-        {
-            this.librariantService = new LibrariantService();
         }
         private void DisplayLibrariant()
         {
@@ -78,10 +78,12 @@ namespace LibraryManagment.Services
         }
         private void UpdateLibrariant()
         {
-            Console.Write("Id: ");
+            Console.Write(" Qaysi Id dagini o'zgartirmoqchisiz?: ");
             int librariantId = int.Parse(Console.ReadLine());
 
             User oldLibrariant = this.librariantService.RetrieveLibrariant(librariantId);
+            if(oldLibrariant is not null)
+            {
             Console.WriteLine(oldLibrariant);
 
             User librariant = new User();
@@ -93,7 +95,7 @@ namespace LibraryManagment.Services
 
             if(string.IsNullOrEmpty(birthday))
 
-                librariant.Birthday = librariant.Birthday;
+                librariant.Birthday = oldLibrariant.Birthday;
             else
                 librariant.Birthday = DateTime.Parse(birthday);
             
@@ -112,12 +114,16 @@ namespace LibraryManagment.Services
                 librariant.UserId = oldLibrariant.UserId;
             else
                 librariant.UserId = int.Parse(userId);
+            librariant.UserType = oldLibrariant.UserType;
     
-            Console.WriteLine(librariant);
+            Console.WriteLine("Muvaffaqiyatli!");
             this.librariantService.ModifyLibrariant(librariantId, librariant);
 
             Console.WriteLine(oldLibrariant);
             Back();
+            }
+            else
+                Back();
         }
         private void DeleteLibrariant()
         {
