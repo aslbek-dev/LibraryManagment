@@ -51,6 +51,9 @@ namespace LibraryManagment.Services
         }
         private void PushLibrariant()
         {
+            Console.WriteLine("Malumotlar quyidagi korinishda bitta "+
+             "bo'sh joy tashlangan holda toliq kiritilishi shart\n");
+
             string inputPattern = " 1.UserId"+
                                   " 2.Name"+
                                   " 3.Birthday"+
@@ -71,9 +74,9 @@ namespace LibraryManagment.Services
             
             librariant.UserType = UserType.Librariant;
 
-            this.librariantService.AddLibrariant(librariant);
-
-            Console.WriteLine(librariant);
+            var _librariant = this.librariantService.AddLibrariant(librariant);
+            if(_librariant is not null)
+                Console.WriteLine("Muvaffaqiyatli qo'shildi!");
             Back();
         }
         private void UpdateLibrariant()

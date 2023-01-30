@@ -66,6 +66,8 @@ namespace LibraryManagment.Services
             Console.Write("Id: ");
             int studentId = int.Parse(Console.ReadLine());
             User oldStudent = this.studentService.RetrieveStudent(studentId);
+            if(oldStudent is not null)
+            {
             Console.WriteLine(oldStudent);
 
             User student = new User();
@@ -97,6 +99,9 @@ namespace LibraryManagment.Services
             this.studentService.ModifyStudent(studentId, student);
             Console.WriteLine(oldStudent);
             Back();
+            }
+            else
+                Back();
         }
         private void DeleteStudent()
         {
