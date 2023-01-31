@@ -9,7 +9,7 @@ namespace LibraryManagment.Data
     public class RentRepository : IRentRepository
     {
         private Dictionary<int, Rent> rents;
-       // public RentRepository()
+       public RentRepository()
         {
             this.rents = new Dictionary<int, Rent>();
         }
