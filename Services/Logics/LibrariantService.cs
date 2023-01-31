@@ -14,7 +14,7 @@ namespace LibraryManagment.Services
         {
             this.librariantRepository = new LibrariantRepository();
         }
-        public IList<User> RetrieveLibrariants(string name)
+        public IList<User> RetrieveLibrariants(string name = null)
         {
             var librariants =
                 this.librariantRepository.SelectAllLibrariants();
@@ -37,8 +37,6 @@ namespace LibraryManagment.Services
             {
                 librariant = 
                     this.librariantRepository.SelectLibrariantByID(librariantId);
-
-                return librariant;
             }
             catch(KeyNotFoundException exception)
             {

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using LibraryManagment.Models;
 using LibraryManagment.Data;
 
@@ -14,29 +10,64 @@ namespace LibraryManagment.Services.Logics
         {
             this.rentRepository = new RentRepository();
         }
+        public List<Rent> RetrieveRents()=>
+        this.rentRepository.SelectAllRents();
+
+        public Rent RetrieveRent(int rentId)
+        {
+            Rent rent = null;
+            try
+            {
+                rent = this.rentRepository.SelectRentById(rentId);
+            }
+            catch(KeyNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            return rent;
+        }
         public Rent AddRent(Rent rent)
         {
-            throw new NotImplementedException();
+            Rent insertedRent = null;
+            try
+            {
+                insertedRent = 
+                    this.rentRepository.InsertRent(rent);
+            }
+            catch(ArgumentException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            return insertedRent;
+        }
+        public Rent ModifyRent(int rentId, Rent rent)
+        {
+           Rent changingRent = null; 
+            try
+            {
+                changingRent = 
+                    this.rentRepository.UpdateRent(rentId, rent);
+            }
+            catch(KeyNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            return changingRent;
         }
 
         public bool DeleteRent(int rentId)
         {
-            throw new NotImplementedException();
-        }
-
-        public Rent ModifyRent(int rentId, Rent rent)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Rent RetrieveRent(int rentId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Rent> RetrieveRents()
-        {
-            throw new NotImplementedException();
+            bool isRemoved = false;
+            try
+            {
+                isRemoved = 
+                    this.rentRepository.DeleteRent(rentId);
+            }
+            catch(KeyNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            return isRemoved;
         }
     }
 }
