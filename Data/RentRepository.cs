@@ -9,7 +9,7 @@ namespace LibraryManagment.Data
     public class RentRepository : IRentRepository
     {
         private Dictionary<int, Rent> rents;
-        public RentRepository()
+       // public RentRepository()
         {
             this.rents = new Dictionary<int, Rent>();
         }
@@ -38,7 +38,9 @@ namespace LibraryManagment.Data
         }
         public bool DeleteRent(int rentId)
         {
-            throw new NotImplementedException();
+            if(!rents.ContainsKey(rentId))
+                throw new KeyNotFoundException("rent not found");
+            return rents.Remove(rentId);
         }
     }
 }
