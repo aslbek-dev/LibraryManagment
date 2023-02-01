@@ -4,6 +4,42 @@ namespace LibraryManagment.Services
 {
     public class StudentMenuService : IStudentMenuService
     {
+        private readonly IStudentService studentService;
+        public StudentMenuService()
+        {
+            this.studentService = new StudentService();
+        }
+        public void LoadStudentMenu()
+        {
+            Console.Clear();
+            var homeService = new HomeService();
+            string menu = "1.Ro'yxat\n"+
+                          "2.Qidirish\n"+
+                          "3.Qo'shish\n"+
+                          "4.Yangilash\n"+
+                          "5.O'chirish\n"+
+                          "6.Orqaga\n";
+            Console.WriteLine("<====Talabalar Menyu====>");
+            Console.WriteLine(menu);
+            Console.Write("menyuni tanlang: ");
+            int.TryParse(Console.ReadLine(), out int option);
+            Console.Clear();
+            switch(option)
+            {
+                case 1:
+                    DisplayStudent(); break;
+                case 2:
+                    SearchStudent(); break;
+                case 3:
+                    PushStudent(); break;
+                case 4:
+                    ChangeStudent(); break;
+                case 5:
+                    DeleteStudent(); break;
+                case 6:
+                    homeService.LoadExistingMenus(); break;
+            }
+        }
         private void Back()
         {
             Console.WriteLine("\n\norqaga qaytish - 0...");
@@ -17,11 +53,6 @@ namespace LibraryManagment.Services
                     Environment.Exit(0); break;
             }
 
-        }
-        private readonly IStudentService studentService;
-        public StudentMenuService()
-        {
-            this.studentService = new StudentService();
         }
         private void DisplayStudent()
         {   
@@ -109,37 +140,6 @@ namespace LibraryManagment.Services
             int.TryParse(Console.ReadLine(), out int studentId);
             this.studentService.RemoveStudent(studentId);
             Back();
-        }
-        public void LoadStudentMenu()
-        {
-            Console.Clear();
-            var homeService = new HomeService();
-            string menu = "1.Ro'yxat\n"+
-                          "2.Qidirish\n"+
-                          "3.Qo'shish\n"+
-                          "4.Yangilash\n"+
-                          "5.O'chirish\n"+
-                          "6.Orqaga\n";
-            Console.WriteLine("<====Talabalar Menyu====>");
-            Console.WriteLine(menu);
-            Console.Write("menyuni tanlang: ");
-            int.TryParse(Console.ReadLine(), out int option);
-            Console.Clear();
-            switch(option)
-            {
-                case 1:
-                    DisplayStudent(); break;
-                case 2:
-                    SearchStudent(); break;
-                case 3:
-                    PushStudent(); break;
-                case 4:
-                    ChangeStudent(); break;
-                case 5:
-                    DeleteStudent(); break;
-                case 6:
-                    homeService.LoadExistingMenus(); break;
-            }
         }
     }
 }

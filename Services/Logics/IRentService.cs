@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LibraryManagment.Models;
 
-namespace LibraryManagment.Services.Logics
+namespace LibraryManagment.Services
 {
     public interface IRentService
     {

@@ -1,7 +1,7 @@
 using LibraryManagment.Models;
 using LibraryManagment.Data;
 
-namespace LibraryManagment.Services.Logics
+namespace LibraryManagment.Services
 {
     public class RentService : IRentService
     {
