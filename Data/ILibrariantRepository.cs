@@ -9,5 +9,6 @@ namespace LibraryManagment.Data
         User InsertLibrariant(User librariant);
         User UpdateLibrariant(int librariantId, User librariant);
         bool DeleteLibrariant(int librariantId);
+
     }
 }

@@ -27,7 +27,7 @@ namespace LibraryManagment.Services
             switch(option)
             {
                 case 1:
-                    DisplayStudent(); break;
+                    DisplayStudents(); break;
                 case 2:
                     SearchStudent(); break;
                 case 3:
@@ -54,7 +54,7 @@ namespace LibraryManagment.Services
             }
 
         }
-        private void DisplayStudent()
+        private void DisplayStudents()
         {   
             var students = 
                 this.studentService.RetrieveStudents();
