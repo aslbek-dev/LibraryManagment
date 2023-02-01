@@ -15,6 +15,7 @@ namespace LibraryManagment.Services
             this.librariantMenuService = new LibrariantMenuService();
 
         }
+    
         public void LoadExistingMenus()
         {
             string menus = "1.Talabalar\n2.Kutubxonachilar\n3.Ijaralar\n4.Chiqish";
