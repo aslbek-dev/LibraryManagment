@@ -23,7 +23,7 @@ namespace LibraryManagment.Data
                 },
                 {
                     2, new User{UserId = 2,
-                             Name = "Sevara",
+                             Name = "Aziza",
                              Birthday = DateTime.Parse("2000-08-07"),
                              Gender = Gender.Female,
                              UserType = UserType.Student
