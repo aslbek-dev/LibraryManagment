@@ -28,6 +28,14 @@ namespace LibraryManagment.Data
                              Gender = Gender.Female,
                              UserType = UserType.Student
                            }
+                },
+                {
+                    3, new User{UserId = 3,
+                             Name = "Shahzod",
+                             Birthday = DateTime.Parse("2003-05-15"),
+                             Gender = Gender.Male,
+                             UserType = UserType.Student
+                           }
                 }
             };
     
