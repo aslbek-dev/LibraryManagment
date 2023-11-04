@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\LibraryManagment.csproj": {}
+    "C:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\LibraryManagment.csproj": {}
   },
   "projects": {
-    "c:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\LibraryManagment.csproj": {
+    "C:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\LibraryManagment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\LibraryManagment.csproj",
+        "projectUniqueName": "C:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\LibraryManagment.csproj",
         "projectName": "LibraryManagment",
-        "projectPath": "c:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\LibraryManagment.csproj",
+        "projectPath": "C:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\LibraryManagment.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\obj\\",
+        "outputPath": "C:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",

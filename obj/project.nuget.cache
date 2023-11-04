@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F8mMGge3fjwNPoJ3vtUaAmo9FAyPeLcuAeMMMisrJQDKq/PadRdUUrr8ORdNAl7pq3b3S8evay8yzZsiEpTPBQ==",
+  "dgSpecHash": "3+tpqqBpnrZj7laGnkGEc03Uhx5rsrOdBjRmRrLI/cvZUY3Ze1zWbEHZI+rKrSPITlOw0weXb+teiaozSPn3tA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\LibraryManagment.csproj",
+  "projectFilePath": "C:\\Users\\user\\dotnet projects\\LibraryManagment.Console\\LibraryManagment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
